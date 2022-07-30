@@ -2,16 +2,16 @@ const express = require ("express");
 
 const {
   readTeachers,
- // readStudents,
-//  addStudent,
+ readStudents,
+  addStudent,
   addTeacher,
   deleteTeacher,
-//  deleteStudent,
- // readStudentInfo,
+  deleteStudent,
+  readStudentInfo,
   readTeacherInfo,
-//  updateStudent,
+ updateStudent,
   updateTeacher,
-//  dbinitialize
+  dbinitialize
 } = require ("./database.js");
 
 const app = express();
@@ -93,7 +93,7 @@ app.post("/getStudentInfo", async function (req, res) {
   console.log("Request received to get Student Info");
   let data = await readStudentInfo(reqBody.id);
 
-  res.setHeader("Content-Type", "application/json");
+  res.setHeader("Content-Type", "application/json");  
   res.end(JSON.stringify(data));
 });
 
